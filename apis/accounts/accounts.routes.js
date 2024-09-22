@@ -1,5 +1,4 @@
 const express = require("express");
-const accounts = require("../../accounts");
 const {
   getAllAccounts,
   createAccount,
@@ -7,22 +6,16 @@ const {
   deleteAccount,
   updatedAccount,
 } = require("./accounts.controller");
-const accountRouter = express.Router();
+const accountRouter = express.Router(); // this is a router that handles everything
 
-//Fetch Accounts..DONE
-accountRouter.get("/api/accounts", getAllAccounts);
+accountRouter.get("/accounts", getAllAccounts);
 
-//Create Account
-accountRouter.post("/api/accounts", createAccount);
+accountRouter.post("/accounts", createAccount);
 
-//Delete Account
-accountRouter.delete("/api/accounts/:accountId", deleteAccount);
+accountRouter.delete("/accounts/:accountId", deleteAccount);
 
-//Update Account
+accountRouter.put("/accounts/:accountId", updatedAccount);
 
-accountRouter.put("api/accounts/:accountId", updatedAccount);
-
-//Bonus..DONE
-accountRouter.get("/api/accounts/:username", getOneAccount);
+accountRouter.get("/accounts/:username", getOneAccount);
 
 module.exports = accountRouter;

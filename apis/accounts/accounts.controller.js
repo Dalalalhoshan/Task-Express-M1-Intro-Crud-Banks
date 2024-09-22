@@ -1,3 +1,5 @@
+const accounts = require("../../accounts");
+
 const getAllAccounts = (request, responce) => {
   return responce.status(200).json({ data: accounts });
 };
@@ -57,4 +59,5 @@ module.exports = {
   createAccount,
   getOneAccount,
   deleteAccount,
+  updatedAccount,
 };
